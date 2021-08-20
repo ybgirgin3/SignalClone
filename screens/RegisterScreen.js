@@ -21,7 +21,7 @@ const RegisterScreen = ({ navigation }) => {
         auth
         .createUserWithEmailAndPassword(email, password)
         .then((authUser) => {
-            authUser.authUser.updateProfile({
+            authUser.user.updateProfile({
                 displayName: name,
                 photoURL: imageUrl || "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png"
             })
@@ -31,7 +31,7 @@ const RegisterScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <StatusBar style="light" />
+            <StatusBar style="auto" />
 
 
             <Text h3 style={{ marginBottom: 50 }}>

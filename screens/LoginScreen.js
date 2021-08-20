@@ -19,15 +19,15 @@ const LoginScreen = ({ navigation }) => {
             }
         });
         return unsubscribe;
-    }, [])
+    }, []);
 
     const signIn = () => {
-
+        auth.signInWithEmailAndPassword(email, password).catch(error => alert(error));
     }
 
     return (
         <View style={styles.container}>
-            <StatusBar style="light" />
+            <StatusBar style="auto" />
 
             <Image 
                 source={{
@@ -49,6 +49,7 @@ const LoginScreen = ({ navigation }) => {
                 type='password' 
                 value={password}
                 onChangeText={(text) => setPassword(text)}
+                onSubmitEditing={signIn}
                 />
             </View>
             <Button 
