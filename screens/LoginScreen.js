@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, Input, Image } from "react-native-elements";
 import { auth } from '../firebase';
+import { KeyboardAvoidingView } from 'react-native';
 
 // https://youtu.be/MJzmZ9qmdaE?t=5263
 
@@ -26,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
             <StatusBar style="auto" />
 
             <Image 
@@ -67,7 +68,7 @@ const LoginScreen = ({ navigation }) => {
                 />
 
             <View style={{ height: 100 }}></View>
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
