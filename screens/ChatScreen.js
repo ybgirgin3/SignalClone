@@ -14,17 +14,22 @@ import firebase from "firebase"
 
 
 const ChatScreen = ({ navigation, route }) => {
+  console.log(auth.currentUser)
+
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
-  const sendMessage = () => {
-    db.collection("chats").doc(route.params.id).collection("messages").add({
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      message: input,
-      displayName: auth.currentUser.displayName,
-      email: auth.currentUser.email,
-      photoURL: auth.currentUser.photoURL
-    })
 
+  const sendMessage = () => {
+    db.collection("chats")
+      .doc(route.params.id)
+      .collection("messages")
+      .add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message: input,
+        displayName: auth.currentUser.displayName,
+        email: auth.currentUser.email,
+        photoURL: auth.currentUser.photoURL
+      })
     setInput('')
   };
 
@@ -36,7 +41,7 @@ const ChatScreen = ({ navigation, route }) => {
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setMessages(
-          snapshot.docs.map(doc => ({
+          snapshot.docs.map((doc) => ({
             id: doc.id,
             data: doc.data(),
           }))
@@ -110,6 +115,7 @@ const ChatScreen = ({ navigation, route }) => {
             <ScrollView contentContainerStyle={{
               paddingTop: 15
             }}>
+
               {messages.map(({ id, data }) => (
                 data.email = auth.currentUser.email ? (
                   <View key={id} style={styles.receiver}>
