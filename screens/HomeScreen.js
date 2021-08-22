@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: "Signal",
+      title: "V&B Chat App",
       headerStyle: { backgroundColor: "#FFF" },
       headerTitleStyle: { color: 'black' },
       headerTintColor: "black",
@@ -57,9 +57,9 @@ const HomeScreen = ({ navigation }) => {
             marginRight: 20,
           }}
         >
-          <TouchableOpacity activeOpacity={0.5}>
+          {/* <TouchableOpacity activeOpacity={0.5}>
             <AntDesign name="camerao" size={24} color="black" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={() => navigation.navigate("AddChat")} activeOpacity={0.5}>
             <SimpleLineIcons name="pencil" size={24} color="black" />
           </TouchableOpacity>

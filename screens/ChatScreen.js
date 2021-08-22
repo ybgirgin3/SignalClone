@@ -2,7 +2,8 @@ import React, { useLayoutEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import { Avatar } from 'react-native-elements'
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { FontAwesome, Ionicons, AntDesign } from '@expo/vector-icons';
+
 import { StatusBar } from 'expo-status-bar';
 import { KeyboardAvoidingView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -82,23 +83,23 @@ const ChatScreen = ({ navigation, route }) => {
       //     {/* <AntDesign name="arrowleft" size={24} color="white"/> */}
       //   </TouchableOpacity>
       // },
-      headerRight: () => {
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: 80,
-            marginRight: 20,
-          }}
-        >
-          <TouchableOpacity>
-            <FontAwesome name="video-camera" size={24} color="black" />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Ionicons name="call" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
-      }
+      // headerRight: () => {
+      //   <View
+      //     style={{
+      //       flexDirection: "row",
+      //       justifyContent: "space-between",
+      //       width: 80,
+      //       marginRight: 20,
+      //     }}
+      //   >
+      //     <TouchableOpacity style={{ width: 100, height: 100 }}>
+      //       <AntDesign name="videocamera" size={24} color="black" />
+      //     </TouchableOpacity>
+      //     <TouchableOpacity>
+      //       <Ionicons name="call" size={24} color="black" />
+      //     </TouchableOpacity>
+      //   </View>
+      // }
     })
   }, [navigation, messages]);
 
@@ -165,7 +166,7 @@ const ChatScreen = ({ navigation, route }) => {
                 value={input}
                 onChangeText={(text) => setInput(text)}
                 onSubmitEditing={sendMessage}
-                placeholder="Signal Message"
+                placeholder="Write a Message"
                 style={styles.textInput} />
               <TouchableOpacity
                 onPress={sendMessage}
